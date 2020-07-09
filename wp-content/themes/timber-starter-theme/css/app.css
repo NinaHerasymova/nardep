@@ -266,6 +266,7 @@ body {
 }
 .header__navbar-link {
   color: #313335;
+  text-transform: uppercase;
 }
 .header__navbar-link:hover {
   color: #902156;

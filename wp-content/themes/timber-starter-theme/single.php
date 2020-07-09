@@ -9,44 +9,44 @@
  * @since    Timber 0.1
  */
 
-$context = Timber::context();
-$timber_post = Timber::query_post();
+$context         = Timber::context();
+$timber_post     = Timber::query_post();
 $context['post'] = $timber_post;
 
+// $ct = get_queried_object()->cat;
+//$cat = wp_get_post_categories( $post->ID );
 $cat_slug = $timber_post->category();
 $cat_id = get_category($cat_slug)->cat_ID;
 $post_id = $timber_post->ID;
 // $cat_id = get_category($cat_slug)->term_id;
 
-$last_news = [
-    'post_type' => 'post',
-    'posts_per_page' => 10,
-    'ignore_sticky_posts' => 1,
-];
-$context['last_news'] = Timber::get_posts($last_news);
 
-$similar_news = [
-    'post_type' => 'post',
-    'numberposts' => 6,
-    'ignore_sticky_posts' => 1,
-    'category' => $cat_id,
-    'post__not_in' => [get_the_ID()],
-];
+$context['categories'] = Timber::get_posts( $categories);
 
 $context['post_id'] = $timber_post->ID;
 
-$context['similar_news'] = Timber::get_posts($similar_news);
-
-if (post_password_required($timber_post->ID)) {
-    Timber::render('single-password.twig', $context);
+if ( post_password_required( $timber_post->ID ) ) {
+    Timber::render( 'single-password.twig', $context );
 } else {
-    Timber::render(
-        [
-            'single-' . $timber_post->ID . '.twig',
-            'single-' . $timber_post->post_type . '.twig',
-            'single-' . $timber_post->slug . '.twig',
-            'single.twig',
-        ],
-        $context
-    );
+    Timber::render( array( 'single-' . $timber_post->ID . '.twig', 'single-' . $timber_post->post_type . '.twig', 'single-' . $timber_post->slug . '.twig', 'single.twig' ), $context );
 }
+
+//$categories = get_categories( [
+//    'taxonomy'     => 'category',
+//    'type'         => 'post',
+//    'child_of'     => 0,
+//    'parent'       => '',
+//    'orderby'      => 'name',
+//    'order'        => 'ASC',
+//    'hide_empty'   => 1,
+//    'hierarchical' => 1,
+//    'exclude'      => '',
+//    'include'      => '',
+//    'number'       => 0,
+//    'pad_counts'   => false,
+//] );
+//
+//
+//foreach($categories as $cat){
+//    print_r($cat->name);
+//}

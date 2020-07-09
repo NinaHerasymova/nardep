@@ -29,3 +29,25 @@ Timber::render(
     ['page-' . $timber_post->post_name . '.twig', 'page.twig'],
     $context
 );
+
+
+$categories = get_categories( [
+    'taxonomy'     => 'category',
+    'type'         => 'post',
+    'child_of'     => 0,
+    'parent'       => '',
+    'orderby'      => 'name',
+    'order'        => 'ASC',
+    'hide_empty'   => 1,
+    'hierarchical' => 1,
+    'exclude'      => '',
+    'include'      => '',
+    'number'       => 0,
+    'pad_counts'   => false,
+] );
+
+foreach( $categories as $cat ) {
+    print_r($cat->name);
+}
+
+$context['categories'] = Timber::get_posts( $categories);
