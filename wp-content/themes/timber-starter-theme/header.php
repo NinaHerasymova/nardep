@@ -16,5 +16,5 @@ if ( ! isset( $timberContext ) ) {
     throw new \Exception( 'Timber context not set in header.' );
 }
 $context['post_id'] = $timber_post->ID;
-$context['main_menu'] = new Timber\Menu('main-menu');
-$context['categories'] = new Timber\Menu('categories');
+
+

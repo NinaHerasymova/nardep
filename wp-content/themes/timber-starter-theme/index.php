@@ -33,12 +33,7 @@ $categories = get_categories( [
     'pad_counts'   => false,
 ] );
 
-$context['categories'] = Timber::get_posts( $categories);
-
-foreach($categories as $cat){
-    print_r($cat->name);
-
-}
+$context['categories'] = $categories;
 
 if (is_home()) {
     array_unshift($templates, 'front-page.twig', 'home.twig');

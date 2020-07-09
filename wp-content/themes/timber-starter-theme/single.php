@@ -48,5 +48,5 @@ if ( post_password_required( $timber_post->ID ) ) {
 //
 //
 //foreach($categories as $cat){
-//    print_r($cat->name);
+//    print_r($cat);
 //}
