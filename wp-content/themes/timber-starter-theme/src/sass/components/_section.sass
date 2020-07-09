@@ -1,0 +1,36 @@
+.section
+  display: flex
+  align-items: center
+  color: $white
+  padding-left: 420px
+  // opacity: 0
+  // position: absolute
+  transition: opacity 1s
+  &.active
+    opacity: 1
+    z-index: 5
+  +xlg
+    padding-left: 300px
+  +xl 
+    padding-left: 250px
+  +md 
+    padding-left: 200px
+  +sm 
+    position: relative
+    opacity: 1
+    padding-left: 0
+  &__inner
+    display: flex
+    flex-direction: column
+    align-items: stretch
+    height: 100vh
+    padding: 100px
+    +cover
+    +xlg
+      padding: 70px 50px 70px
+    +sm
+      height: auto
+      padding: 0 15px
+
+.fp-tableCell
+  width: 100%

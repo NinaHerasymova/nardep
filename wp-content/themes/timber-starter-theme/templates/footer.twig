@@ -1,0 +1,35 @@
+<footer class="footer">
+  <div class="footer__inner inner">
+    <div class="footer__inner-item">
+      <a href="#" class="logo">
+        <img src="{{ theme.link }}/img/main_logo.svg" alt="logo" />
+      </a>
+      <div>
+        <p>Интернет-издание честных новостей.</p>
+        <p>© Все права зaщищены. 2019</p>
+      </div>
+    </div>
+    <div class="footer__inner-item">
+      <h4>Дополнительная информация</h4>
+      <a>Политика конфиденциальности</a>
+      <a>Правила пользования сайтом</a>
+      <a>Реклама</a>
+    </div>
+    <div class="footer__inner-item">
+      <h4>Подписка на новости</h4>
+      <form class="subscribe">
+        <input type="text" placeholder="example@ddd.gg" />
+        <button class="subscribe-button">
+          {{ mixins.icon("arrow_right") }}
+        </button>
+      </form>
+    </div>
+    <div class="footer__inner-item">
+      <h4>Контакты</h4>
+      <a>narden-life@gmail.com</a>
+      <div class="social-links">
+        {% include "partials/_social-menu.twig" %}
+      </div>
+    </div>
+  </div>
+</section>

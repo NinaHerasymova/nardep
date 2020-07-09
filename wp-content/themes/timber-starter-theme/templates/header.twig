@@ -1,0 +1,35 @@
+{% set menu_item = [
+  'ГЛАВНАЯ',
+  'ПОЛИТИКА',
+  'ЭКОНОМИКА',
+  'ВОЙНА',
+  'ОБЩЕСТВО',
+  'ПРОИСШЕСТВИЯ',
+  'СПОРТ'
+] %}
+
+<section class="header">
+  <div class="header__inner inner">
+    {% include 'partials/_mobile-menu.twig' %}
+    <div class="header__logo" id="top-logo">
+      <a href="#" class="logo">
+        <img src="{{ theme.link }}/img/main_logo.svg" alt="logo" />
+      </a>
+    </div>
+    <ul class="header__navbar">
+      {% for item in menu_item %}
+        <li class="header__navbar-item">
+          <a href="#"
+            class="header__navbar-link"
+            target="_blank"
+            rel="nofollow noreferrer noopener">
+            {{ item }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    <div class="header__search">
+      <span class="header__search-icon"></span>
+    </div>
+  </div>
+</section>

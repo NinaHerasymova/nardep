@@ -1,0 +1,23 @@
+//FONTS
+=fontpath($name, $name1, $file)
+  src: local($name), local($name1), url("../fonts/" + $file + ".woff") format("woff")
+=fontdefault($style, $weight, $name)
+  font-family: $name
+  font-style: $style
+  font-weight: $weight
+
+$roboto: "Roboto"
+$gilroy: "Gilroy"
+
+@font-face
+  +fontdefault(normal, 100, $roboto)
+  @include fontpath("Roboto-Light", "Roboto-Light", RobotoLight)
+
+@font-face
+  +fontdefault(normal, 700, $roboto)
+  @include fontpath("Roboto-Bold", "Roboto-Bold", RobotoBold)
+
+@font-face
+  +fontdefault(normal, 400, $roboto)
+  @include fontpath("Roboto-Regular", "Roboto-Regular", RobotoRegular)
+

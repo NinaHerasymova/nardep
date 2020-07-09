@@ -1,0 +1,99 @@
+=menu-line
+  display: block
+  background: white
+  height: 2px
+  transition: .4s
+
+.mobile-menu
+  align-items: center
+  padding: 20px
+  top: 0
+  left: 0
+  right: 0
+  z-index: 9999999
+  display: none
+  border-right: 1px solid rgba(255, 255, 255, 0.4)
+  +md
+    display: flex
+  &__btn
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 35px
+    height: 30px
+    cursor: pointer
+    transition: .4s
+  &__icon
+    +menu-line
+    position: relative
+    width: 90%
+    &::after
+      +menu-line
+      content: ""
+      position: absolute
+      width: 100%
+      top: 8px
+    &::before
+      +menu-line
+      content: ""
+      position: absolute
+      width: 100%
+      top: -8px
+  &__container
+    position: absolute
+    text-align: center
+    display: flex
+    align-items: center
+    justify-content: center
+    top: 71px
+    left: 0
+    right: 0
+    z-index: 999
+    height: 0
+    opacity: 1
+    transition: .5s
+    overflow: hidden
+    background-color: #902156
+
+  &__list
+    transition: .5s
+    list-style: none
+    padding-left: 0
+    margin-top: -50px
+
+  &__item
+    font-size: 26px
+    padding-bottom: 15px
+
+  &__link
+    text-decoration: none
+    color: #fff
+
+  &__checkbox
+    display: none
+
+    &:checked ~ .mobile-menu__nav
+      opacity: 1
+
+    &:checked ~ .mobile-menu__container
+      height: 100%
+
+    &:checked ~ .mobile-menu__btn .mobile-menu__icon
+      background: transparent
+      padding-bottom: 18px
+      &::before
+        top: 8px
+    &:checked ~ .mobile-menu__checkbox:checked ~ .mobile-menu__btn .mobile-menu__icon::after
+      top: 2px
+
+    &:checked ~ .mobile-menu__btn .mobile-menu__icon::after
+      transform: rotate(-45deg)
+      -webkit-transform: rotate(-45deg)
+
+    &:checked ~ .mobile-menu__btn .mobile-menu__icon::before
+      transform: rotate(45deg)
+      -webkit-transform: rotate(45deg)
+
+
+

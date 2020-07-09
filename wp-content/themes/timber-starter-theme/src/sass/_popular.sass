@@ -1,0 +1,47 @@
+=slider-arrow
+  font-size: 12px
+  border-radius: 50%
+  display: block
+  width: 35px
+  height: 35px
+  background-color: white
+  box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.2)
+  &:hover
+    color: white
+    background-color: #902156
+    box-shadow: none
+    transition: all 500ms ease
+
+.popular
+  padding: 0 30px
+  position: relative
+  &__inner
+    &-header
+      display: flex
+    .arrow
+      display: flex
+      justify-content: space-between
+      width: 80px
+      align-items: center
+      border-bottom: 1px solid #e2eaf0
+      &__button
+        +slider-arrow
+      +md
+        display: none
+  &__slider
+    padding-top: 30px
+    .slick-dots li.slick-active button:before
+      opacity: .75
+      color: #902156
+    .slick-dots li button:before
+      font-size: 10px
+      line-height: 20px
+      position: absolute
+      top: 0
+      left: 0
+      width: 20px
+      height: 20px
+      content: '•'
+      text-align: center
+      opacity: .25
+      color: #902156

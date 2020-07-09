@@ -1,0 +1,4 @@
+{% set icons = ['fb', 'vk', 'inst', 'twitter', 'telegram'] %}
+{% for item in icons %}
+  <span class="social-links__icon">{{ mixins.icon(item) }}</span>
+{% endfor %}

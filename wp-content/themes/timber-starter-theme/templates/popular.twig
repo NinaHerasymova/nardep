@@ -1,0 +1,21 @@
+<section class="popular" data-anchor="top">
+  <div class="popular__inner inner">
+    <div class="popular__inner-header">
+      {% set name = 'Популярные новости' %} {% include 'partials/_section-title.twig' %}
+      <div class="arrow">
+        {% set arrows = ['arrow_left', 'arrow_right'] %}
+        {% for item in arrows %}
+          <button class="arrow__button">{{ mixins.icon(item) }}</button>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="popular__slider">
+      {% for post in posts %}
+        <div class="popular__slide">
+          {% include 'partials/_news-card.twig' %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

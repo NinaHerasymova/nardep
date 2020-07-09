@@ -1,0 +1,131 @@
+=filter-icon($image, $hover-image, $hover-color,$width, $height)
+  display: flex
+  align-items: center
+  height: 50px
+  span
+    display: inline-block
+    background-image: $image
+    width: $width
+    height: $height
+    margin-left: 10px
+  &:hover
+    color: $hover-color
+    span
+      background-image: $hover-image
+
+.main-section
+  padding: 30px
+  +md
+    padding: 0
+  &__inner
+    display: flex
+    justify-content: space-between
+    +md
+      flex-direction: column
+    &__content
+      background: linear-gradient(grey 6px, transparent 17%), url(../img/main-new.jpg)no-repeat
+      background-size: cover
+      height: 560px
+      padding: 25px
+      margin-bottom: 30px
+      display: flex
+      flex-grow: 1
+      flex-direction: column
+      justify-content: space-between
+      &__title
+        text-transform: uppercase
+        color: white
+        font-size: 2.5em
+      &__card
+        background-color: white
+        max-width: 400px
+        line-height: 20px
+        padding: 15px
+        .card-data
+          display: flex
+          justify-content: flex-start
+          &__date
+            padding: 7px
+            color: #A8B3C2
+        .card-title
+          text-transform: uppercase
+          padding: 15px 0 10px 0
+        .card-text
+          line-height: 20px
+          font-weight: 300
+    &-sidebar
+      padding-left: 30px
+      margin-top: -10px
+      max-width: 320px
+      &::after
+        content: ''
+        height: 80px
+        background: linear-gradient(360deg, #FFFFFF 17.77%, rgba(255, 255, 255, 0) 110%)
+        display: block
+        position: relative
+        margin: -80px 3px 0 -3px
+        padding-right: 5px
+      +md
+        max-width: none
+      +sm
+        padding: 15px
+      .inner-sidebar__filter
+        display: flex
+        font-size: 0.9em
+        font-weight: bold
+        justify-content: space-between
+        color: gray
+        padding-right: 5px
+        +md
+          display: none
+        &-last
+          +filter-icon(url("../img/lamp_gray.svg"), url("../img/lamp_purple.svg"), #902156,16px, 18px)
+        &-popular
+          +filter-icon(url("../img/fire_gray.svg"), url("../img/fire_purple.svg"), #902156, 12px, 16px)
+        &__adaptive
+          margin-top: 20px
+          display: none
+          justify-content: space-between
+          border: 1px solid #902156
+          text-transform: uppercase
+          height: 50px
+          max-width: 250px
+          align-items: center
+          font-weight: 600
+          font-size: 14px
+          +md
+            display: flex
+          &-last
+            +filter-icon(url("../img/lamp_purple.svg"), url("../img/lamp_purple.svg"), black, 16px, 18px)
+            padding: 0 15px
+          &-popular
+            background-color: #902156
+            color: white
+            +filter-icon(url("../img/fire_white.svg"), url("../img/fire_gray.svg"), black, 12px, 16px)
+            padding: 0 15px
+      .inner-sidebar
+        &__slider
+          overflow: auto
+          height: 480px
+          +md
+            height: auto
+            max-width: none
+            display: flex
+            flex-wrap: wrap
+          &::-webkit-scrollbar
+            width: 3px
+            height: 8px
+            background-color: #E2EAF0
+            &-thumb
+              background-color: #902156
+        &__more
+          color: white
+          background-color: #902156
+          width: 173px
+          height: 50px
+          font-weight: 600px
+          display: none
+          margin: 15px auto
+          +md
+            display: block
+

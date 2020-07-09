@@ -1,0 +1,75 @@
+.footer
+  margin-top: 20px
+  padding: 50px 
+  background: #3e3d3d
+  &__inner
+    display: flex
+    justify-content: space-between
+    color: white
+    flex-wrap: wrap
+    font-weight: 100
+    font-size: 14px
+    
+    &-item
+      padding: 20px
+      min-width: 280px
+      +md 
+        padding-bottom: 50px
+      +sm 
+      padding: 0
+      .logo
+        padding-bottom: 10px
+      h4
+        text-transform: uppercase
+        padding: 14px 0 23px 0
+      a 
+        font-weight: 100
+        display: flex
+        flex-direction: column
+        img 
+          align-self: baseline
+        &:hover
+          cursor: pointer
+          color: #902156
+    .subscribe
+      &-button
+        height: 50px
+        width: 50px
+        border-radius: 50%
+        background: #313335
+        margin-left: -50px
+        color: white
+        border: 1px solid #3B3F44
+        &:hover
+          color: black
+          background: white
+      input
+        width: 200px
+        height: 50px
+        border-radius: 50px
+        padding-left: 20px
+        background-color: #282A2B
+        color: white
+    .social-links
+      display: flex
+      justify-content: space-between
+      padding-top: 20px
+      max-width: 160px
+      &__icon
+        width: 24px
+        height: 24px
+        opacity: .5
+        border: 1px solid rgba(255,255,255, 0.5)
+        border-radius: 50%
+        font-size: 11px
+        text-align: center
+        padding: 4px
+        &:nth-child(2)
+          font-size: 9px
+          padding: 6px 4px
+        &:hover
+          opacity: 1
+          opacity: 1
+          color: #313334
+          background: white
+        

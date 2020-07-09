@@ -1,0 +1,62 @@
+.all-news
+  padding: 30px
+  +sm 
+    padding: 10px
+  &__inner
+    &-content
+      padding-top: 30px
+      display: grid
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+      grid-template-rows: 250px 420px
+      grid-gap: 2vw
+      +md 
+        grid-template-rows: 156px
+        grid-auto-rows: 156px
+      .item
+        background-size: cover
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+        padding: 20px
+        a
+          color: white
+          transition: 1s linear
+          img 
+            align-self: baseline
+          &:hover  
+            color: #FFCFE6
+        &:nth-child(3)
+         grid-column-start: 1
+         margin-bottom: 120px
+         margin-right: 50px
+         +md 
+          grid-column-start: auto
+          margin-bottom: 0
+          margin-right: 0
+        &:nth-child(4)
+         margin-bottom: 120px
+         margin-left: -50px
+         margin-right: 50px
+         +md 
+          grid-column-start: auto
+          margin-bottom: 0
+          margin-left: 0
+          margin-right: 0
+        &:nth-child(5)
+          margin-left: -50px
+          +md 
+            margin-bottom: 0
+            margin-left: 0
+        &__data
+          display: flex
+          padding-bottom: 5px
+          &-date
+            color: white
+            padding: 7px 12px
+          &-title
+            text-transform: uppercase
+            a
+              color: white
+
+
+

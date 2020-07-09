@@ -1,0 +1,25 @@
+{% import 'partials/_mixins.twig' as mixins %}
+
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+  {% block head %}
+  {% endblock %}
+  </head>
+{% endblock %}
+
+  <body data-template="base.twig">
+    
+    {% include "header.twig" %}
+    <section id="content" role="main">
+      {% block content %}
+        Sorry, no content
+      {% endblock %}
+    </section>
+    {% include 'footer.twig' %}
+    
+    {{ function('wp_footer') }}
+    <script src="{{ theme.link }}/js/slider.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,111 @@
+{% macro icon(i) %}
+  <svg class="icon icon-{{ i }}">
+    <use xlink:href="{{ theme.link }}/img/sprite.svg#icon-{{ i }}"></use>
+  </svg>
+{% endmacro %}
+
+{# {% macro postDetails(props) %}
+<div class="post-details{% if props.modifier %} post-details--{{ props.modifier }}{% endif %}">
+	<div class="post-details__tag">
+		<a class="tag" href="{{ get_cat_link(props.category) }}">#{{ props.category }}</a>
+	</div>
+	<div class="post-details__date">
+		<span class="date" datetime="{{ props.datetime }}" itemprop="datePublished">{{ props.date }}</span>
+	</div>
+	{% if props.author_link %}
+		<div class="post-details__author">
+			<a class="author" href="{{ props.author_link }}">{{ props.author_name }}</a>
+		</div>
+	{% endif %}
+</div>
+{% endmacro %}
+
+{% macro postDetailsBig(props) %}
+	<div class="post-details post-details--big">
+		<div class="post-details__tag">
+			<a class="tag tag--red" href="{{ get_cat_link(props.category) }}">#{{ props.category }}</a>
+		</div>
+		<div class="post-details__date">
+			<span class="date date--dark" datetime="{{ props.datetime }}" itemprop="datePublished">{{ props.date }}</span>
+		</div>
+	</div>
+{% endmacro %}
+
+
+{% macro image_card(props) %}
+<div class="image-card">
+	<div class="image-card__image">
+		<img src="{{ props.img_src }}" alt="{{ props.title }}">
+	</div>
+	<div class="image-card__content card-content">
+		<div class="image-card__details card-details">
+			{{ _self.postDetails({
+				category: props.tag,
+				datetime: props.datetime,
+				date: props.date
+			}) }}
+		</div>
+		<h3 class="image-card__title" itemprop="headline">
+			<a class="card-title" href="{{ props.post_link }}">{{ props.title }}</a>
+		</h3>
+	</div>
+</div>
+{% endmacro %}
+
+{% macro card_with_addon(props) %}
+<div class="card-with-addon card-with-addon--{{ props.modifier }}">
+	<div class="card-with-addon__image">
+		<img src="{{ props.img_src }}" alt="{{ props.title }}">
+	</div>
+	<div class="card-with-addon__content card-content">
+		<div class="card-with-addon__details card-details">
+			{{ _self.postDetails({
+				category: props.tag,
+				datetime: props.datetime,
+				date: props.date
+			}) }}
+		</div>
+		<h3 class="card-with-addon__title" itemprop="headline">
+			<a class="card-title" href="{{ props.post_link }}">
+				{{ props.title }}
+			</a>
+		</h3>
+	</div>
+</div>
+{% endmacro %}
+
+{% macro card(props) %}
+<div class="card{% if props.modifier %} card--{{ props.modifier }}{% endif %}">
+	<div class="card__image">
+		<img src="{{ props.img_src }}" alt="{{ props.title }}">
+	</div>
+	<div class="card__content card-content">
+		<div class="card__details card-details">
+			{{ _self.postDetails({
+				category: props.tag,
+				datetime: props.datetime,
+				date: props.date,
+				author_link: props.author_link,
+				author_name: props.author_name,
+				modifier: props.details_modifier
+			}) }}
+		</div>
+		<h3 class="card__title" itemprop="headline">
+			<a class="card-title" href="{{ props.post_link }}">
+				{{ props.title }}
+			</a>
+		</h3>
+	</div>
+</div>
+{% endmacro %}
+
+{% macro to_all_news_btn(props) %}
+<a href="{{ props.link }}" class="link{% if props.modifier %} link--{{ props.modifier }}{% endif %}">
+	<span class="link__text">Ко всем новостям</span>
+	<span class="link__arrow">
+		<svg viewBox="0 0 37 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M0.0795898 1.34827H35.7378L29.3702 7.7158" />
+		</svg>
+	</span>
+</a>
+{% endmacro %} #}

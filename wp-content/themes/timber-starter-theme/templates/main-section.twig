@@ -1,0 +1,65 @@
+{% import 'partials/_category-button.twig' as btn %}
+<section class="main-section" data-anchor="top">
+  <div class="main-section__inner inner">
+    <div class="main-section__inner__content"
+      style="background-image: linear-gradient(grey 6px, transparent 17%), url({{
+      posts[0].thumbnail
+      }})">
+      <h1 class="main-section__inner__content__title">
+        Новость дня
+      </h1>
+      <div class="main-section__inner__content__card">
+        <div class="card-data">
+          {{
+            btn.category_button({
+              name: posts[0].category
+            })
+          }}
+          <div class="card-data__date">
+            {{ posts[0].date }}
+          </div>
+        </div>
+        <h3 class="card-title">
+          {{ posts[0].title }}
+        </h3>
+        <p class="card-text">
+          {{ posts[0].prev }}
+        </p>
+      </div>
+    </div>
+    <div class="main-section__inner-sidebar">
+      {% set name = 'Новости' %} {% include 'partials/_section-title.twig' %}
+      <div class="inner-sidebar__filter">
+        <div class="inner-sidebar__filter-last active">
+          <p>
+            Последние
+          </p>
+          <span></span>
+        </div>
+        <div class="inner-sidebar__filter-popular">
+          <p>
+            Популярные
+          </p>
+          <span></span>
+        </div>
+      </div>
+      <div class="inner-sidebar__filter__adaptive">
+        <div class="inner-sidebar__filter__adaptive-last">
+          Последние
+          <span></span>
+        </div>
+        <div class="inner-sidebar__filter__adaptive-popular active">
+          Популярные
+          <span></span>
+        </div>
+      </div>
+
+      <div class="inner-sidebar__slider">
+        {% for post in posts %}
+          {% include 'partials/_sidebar-card.twig' %}
+        {% endfor %}
+      </div>
+      <input class="inner-sidebar__more" type="button" value="ПОСМОТРЕТЬ ЕЩЕ" />
+    </div>
+  </div>
+</section>
