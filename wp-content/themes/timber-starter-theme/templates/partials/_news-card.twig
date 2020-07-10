@@ -2,20 +2,21 @@
 {% block news_card %}
   <div class="news-card"
     style="background-image: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 62.44%), url({{
-    post.thumbnail
+    item.thumbnail
     }})">
     <div class="news-card__data">
       {{
         btn.category_button({
-          name: post.category
+          name: item.category,
+          link:  get_cat_link(item.category)
         })
       }}
       <div class="news-card__data-date">
-        {{ post.date }}
+        {{ item.date }}
       </div>
     </div>
     <h3 class="news-card__data-title">
-      <a href="{{ post.link }}">{{ post.title }}</a>
+      <a href="{{ item.link }}">{{ item.title }}</a>
     </h3>
   </div>
 {% endblock %}

@@ -20,8 +20,8 @@ $cat_id = get_category($cat_slug)->cat_ID;
 $post_id = $timber_post->ID;
 // $cat_id = get_category($cat_slug)->term_id;
 
-
-$context['categories'] = Timber::get_posts( $categories);
+//
+//$context['categories'] = Timber::get_posts( $categories);
 
 $context['post_id'] = $timber_post->ID;
 
@@ -31,22 +31,4 @@ if ( post_password_required( $timber_post->ID ) ) {
     Timber::render( array( 'single-' . $timber_post->ID . '.twig', 'single-' . $timber_post->post_type . '.twig', 'single-' . $timber_post->slug . '.twig', 'single.twig' ), $context );
 }
 
-//$categories = get_categories( [
-//    'taxonomy'     => 'category',
-//    'type'         => 'post',
-//    'child_of'     => 0,
-//    'parent'       => '',
-//    'orderby'      => 'name',
-//    'order'        => 'ASC',
-//    'hide_empty'   => 1,
-//    'hierarchical' => 1,
-//    'exclude'      => '',
-//    'include'      => '',
-//    'number'       => 0,
-//    'pad_counts'   => false,
-//] );
-//
-//
-//foreach($categories as $cat){
-//    print_r($cat);
-//}
+

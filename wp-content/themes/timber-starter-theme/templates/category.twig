@@ -1,4 +1,9 @@
 
 <section class="main-section" data-anchor="top">
-<h1>{{ category.name }}</h1>
+<h1>{{ cat_title}}</h1>
+    {% for item in cat_news %}
+            <div class="popular__slide">
+                {% include 'partials/_news-card.twig' %}
+            </div>
+    {% endfor %}
 </section>

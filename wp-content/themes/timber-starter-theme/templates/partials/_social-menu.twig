@@ -1,3 +1,4 @@
+{% import 'partials/_mixins.twig' as mixins %}
 {% set icons = ['fb', 'vk', 'inst', 'twitter', 'telegram'] %}
 {% for item in icons %}
   <span class="social-links__icon">{{ mixins.icon(item) }}</span>

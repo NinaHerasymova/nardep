@@ -1,18 +1,18 @@
 {% block sidebar_card %}
   <div class="sidebar-card">
     <img class="sidebar-card__thumbnail"
-      src="{{ post.thumbnail }}"
+      src="{{ item.thumbnail }}"
       alt="thumbnail" />
     <div class="sidebar-card__text">
       <div class="sidebar-card__excert">
-        <a href="{{ post.link }}">{{ post.title }}</a>
+        <a href="{{ item.link }}">{{ item.title }}</a>
       </div>
       <div class="sidebar-card__data">
         <div class="sidebar-card__data-category">
-          <a href="">{{ post.category }}</a>
+          <a href="{{ get_cat_link(item.category) }}">{{ item.category }}</a>
         </div>
         <div class="sidebar-card__data-date">
-          {{ post.date }}
+          {{ item.date }}
         </div>
       </div>
     </div>

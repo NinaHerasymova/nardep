@@ -522,8 +522,6 @@ body {
 .main-section__inner__content {
   background: -o-linear-gradient(gray 6px, transparent 17%),
     url(../img/main-new.jpg) no-repeat;
-  background: linear-gradient(gray 6px, transparent 17%),
-    url(../img/main-new.jpg) no-repeat;
   background-size: cover;
   height: 560px;
   padding: 25px;
@@ -559,6 +557,17 @@ body {
 .main-section__inner__content__card .card-title {
   text-transform: uppercase;
   padding: 15px 0 10px;
+}
+.main-section__inner__content__card .card-title:hover {
+  color: #902156;
+}
+
+.main-section__inner__content__card .card-title a {
+  color: black;
+}
+
+.main-section__inner__content__card .card-title a:hover {
+  color: #902156;
 }
 .main-section__inner__content__card .card-text {
   line-height: 20px;
@@ -611,6 +620,7 @@ body {
   -ms-flex-align: center;
   align-items: center;
   height: 50px;
+  cursor: pointer;
 }
 .main-section__inner-sidebar .inner-sidebar__filter-last span {
   display: inline-block;
@@ -626,6 +636,10 @@ body {
 .main-section__inner-sidebar .inner-sidebar__filter-last:hover span {
   background-image: url(../img/lamp_purple.svg);
 }
+
+.main-section__inner-sidebar .inner-sidebar__filter-last.active span {
+  background-image: url(../img/lamp_purple.svg);
+}
 .main-section__inner-sidebar .inner-sidebar__filter-popular span {
   display: inline-block;
   background-image: url(../img/fire_gray.svg);
@@ -634,6 +648,9 @@ body {
   margin-left: 10px;
 }
 .main-section__inner-sidebar .inner-sidebar__filter-popular:hover span {
+  background-image: url(../img/fire_purple.svg);
+}
+.main-section__inner-sidebar .inner-sidebar__filter-popular.active span {
   background-image: url(../img/fire_purple.svg);
 }
 .main-section__inner-sidebar .inner-sidebar__filter__adaptive {
@@ -662,6 +679,7 @@ body {
   align-items: center;
   height: 50px;
   padding: 0 15px;
+
 }
 .main-section__inner-sidebar .inner-sidebar__filter__adaptive-last span {
   display: inline-block;
@@ -697,6 +715,10 @@ body {
   overflow: auto;
   height: 480px;
 }
+.main-section__inner-sidebar .inner-sidebar__slider-popular {
+  display: none;
+}
+
 .main-section__inner-sidebar .inner-sidebar__slider::-webkit-scrollbar {
   width: 3px;
   height: 8px;
@@ -937,6 +959,12 @@ body {
 .news-card__data-title a:hover {
   color: #ffcfe6;
 }
+
+.active{
+  color: black;
+}
+
+
 @media only screen and (max-width: 1025px) {
   .header {
     background: #902156;

@@ -3,7 +3,7 @@
   <div class="main-section__inner inner">
     <div class="main-section__inner__content"
       style="background-image: linear-gradient(grey 6px, transparent 17%), url({{
-      posts[0].thumbnail
+      sticky_news[0].thumbnail
       }})">
       <h1 class="main-section__inner__content__title">
         Новость дня
@@ -12,31 +12,32 @@
         <div class="card-data">
           {{
             btn.category_button({
-              name: posts[0].category
+              name: sticky_news[0].category,
+              link:  get_cat_link(sticky_news[0].category)
             })
           }}
           <div class="card-data__date">
-            {{ posts[0].date }}
+            {{ sticky_news[0].date }}
           </div>
         </div>
         <h3 class="card-title">
-          <a href="{{ posts[0].link }}">{{ posts[0].title }}</a>
+          <a href="{{ sticky_news[0].link }}">{{ sticky_news[0].title }}</a>
         </h3>
         <p class="card-text">
-          {{ posts[0].prev }}
+          {{ sticky_news[0].prev }}
         </p>
       </div>
     </div>
     <div class="main-section__inner-sidebar">
       {% set name = 'Новости' %} {% include 'partials/_section-title.twig' %}
       <div class="inner-sidebar__filter">
-        <div class="inner-sidebar__filter-last active">
+        <div class="inner-sidebar__filter-last active"  id="last_news-toggle">
           <p>
             Последние
           </p>
           <span></span>
         </div>
-        <div class="inner-sidebar__filter-popular">
+        <div class="inner-sidebar__filter-popular"  id="popular_news-toggle">
           <p>
             Популярные
           </p>
@@ -48,16 +49,23 @@
           Последние
           <span></span>
         </div>
-        <div class="inner-sidebar__filter__adaptive-popular active">
+        <div class="inner-sidebar__filter__adaptive-popular">
           Популярные
           <span></span>
         </div>
       </div>
 
       <div class="inner-sidebar__slider">
-        {% for post in posts %}
-          {% include 'partials/_sidebar-card.twig' %}
-        {% endfor %}
+        <div class="inner-sidebar__slider-last" id="last_news">
+          {% for item in sticky_news %}
+            {% include 'partials/_sidebar-card.twig' %}
+          {% endfor %}
+        </div>
+        <div class="inner-sidebar__slider-popular" id="popular_news">
+          {% for item in last_news %}
+            {% include 'partials/_sidebar-card.twig' %}
+          {% endfor %}
+        </div>
       </div>
       <input class="inner-sidebar__more" type="button" value="ПОСМОТРЕТЬ ЕЩЕ" />
     </div>

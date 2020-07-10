@@ -81,7 +81,6 @@ class StarterSite extends Timber\Site
     public function add_to_context($context)
     {
         $context['footer_menu'] = new Timber\Menu('footer-menu');
-        $context['categories'] = new Timber\Menu('categories');
         $context['main_menu'] = new Timber\Menu('main-menu');
         $context['site'] = $this;
         return $context;
@@ -160,10 +159,11 @@ class StarterSite extends Timber\Site
 
 add_filter('timber/twig', 'add_to_twig');
 
+function get_cat_link($cat) {
+    $lnk = get_category_link($cat);
+    return $lnk;
+}
 
-// $context['post_id'] = $timber_post->ID;
-
-// $context['popular_news'] = Timber::get_posts($popular_news);
 
 function add_to_twig($twig)
 {
@@ -176,26 +176,6 @@ function add_to_twig($twig)
     $twig->addFunction(new Timber\Twig_Function('is_mobile', 'is_mobile'));
     return $twig;
 }
-
-/* Подсчет количества посещений страниц
- ---------------------------------------------------------- */
-
-
-// add_action( 'generate_rewrite_rules', 'my_rewrite_rules' );
-// function my_rewrite_rules( $wp_rewrite )
-// {
-//     $wp_rewrite->rules = array(
-//             'mypageslug/([^/]+)/page/?([0-9]{1,})/?$' => $wp_rewrite->index . '?pagename=mypageslug&user=' . $wp_rewrite->preg_index( 1 ) . '&paged=' . $wp_rewrite->preg_index( 2 ),
-//             'mypageslug/([^/]+)/?$' => $wp_rewrite->index . '?pagename=mypageslug&user=' . $wp_rewrite->preg_index( 1 )
-
-//         ) + $wp_rewrite->rules;
-// }
-
-//require_once 'inc/helpers/helpers.php';
-//add additional functions for theme
-//require_once 'inc/functions/functions.php';
-//require_once 'inc/components/components.php';
-//require_once 'inc/customizer/customizer.php';
 
 // нужно для использование "хлебных крошек" внутри шаблонов
 TimberHelper::function_wrapper('breadcrumbs_init');

@@ -3,16 +3,16 @@
 {% set name = "Все новости" %} {% include "partials/_section-title.twig" %}
  
     <div class="all-news__inner-content">
-    {% for post in posts %}
+    {% for item in posts %}
        {% import "partials/_category-button.twig" as btn
       %}
-      <div class="item" style="background-image: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 62.44%), url({{post.thumbnail}})">
+      <div class="item" style="background-image: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 62.44%), url({{item.thumbnail}})">
         <div class="item__data">
-          {{ btn.category_button({ name: post.category }) }}
-          <div class="item__data-date">{{post.date}}</div>
+          {{ btn.category_button({ name: item.category, link:  get_cat_link(item.category) }) }}
+          <div class="item__data-date">{{item.date}}</div>
         </div>
         <h3 class="item__data-title">
-          <a href="{{post.link}}">{{post.title}}</a>
+          <a href="{{item.link}}">{{item.title}}</a>
         </h3>
       </div>
          {% endfor %}

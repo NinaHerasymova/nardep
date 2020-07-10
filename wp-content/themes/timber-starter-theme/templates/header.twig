@@ -1,13 +1,3 @@
-{#{% set menu_item = [#}
-{#  'ГЛАВНАЯ',#}
-{#  'ПОЛИТИКА',#}
-{#  'ЭКОНОМИКА',#}
-{#  'ВОЙНА',#}
-{#  'ОБЩЕСТВО',#}
-{#  'ПРОИСШЕСТВИЯ',#}
-{#  'СПОРТ'#}
-{#] %}#}
-
 <section class="header">
   <div class="header__inner inner">
     {% include 'partials/_mobile-menu.twig' %}
@@ -17,9 +7,9 @@
       </a>
     </div>
     <ul class="header__navbar">
-      {% for item in categories %}
+      {% for item in main_menu.items %}
         <li class="header__navbar-item">
-          <a href="#"
+          <a href="{{ item.link }}"
             class="header__navbar-link"
             target="_blank"
             rel="nofollow noreferrer noopener">

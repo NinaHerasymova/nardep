@@ -18,22 +18,23 @@ $context['posts'] = new Timber\PostQuery();
 $context['foo'] = 'bar';
 $templates = ['index.twig'];
 
-$categories = get_categories( [
-    'taxonomy'     => 'category',
-    'type'         => 'post',
-    'child_of'     => 0,
-    'parent'       => '',
-    'orderby'      => 'name',
-    'order'        => 'ASC',
-    'hide_empty'   => 1,
-    'hierarchical' => 1,
-    'exclude'      => '',
-    'include'      => '',
-    'number'       => 0,
-    'pad_counts'   => false,
-] );
+$sticky_news = array(
+    'posts_per_page' => 1,
+    'post_type' => 'post',
+    //'ignore_sticky_posts' => 1,
+    'post__in' => get_option('sticky_posts'),
+    'order' => 'DESC'
+);
+$context['sticky_news'] = Timber::get_posts( $sticky_news  );
 
-$context['categories'] = $categories;
+$last_news = array(
+    'post_type' => 'post',
+    'posts_per_page' => 8,
+   'post__not_in' => get_option( 'sticky_posts') ,
+   // 'order' => 'ASC'
+);
+
+$context['last_news'] = Timber::get_posts( $last_news  );
 
 if (is_home()) {
     array_unshift($templates, 'front-page.twig', 'home.twig');
