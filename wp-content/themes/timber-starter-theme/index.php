@@ -35,7 +35,6 @@ $last_news = array(
 
 $context['last_news'] = Timber::get_posts( $last_news );
 
-
 $main_news = array(
     'post__not_in' => get_option( 'sticky_posts'),
             'meta_key' => 'main_new',
@@ -43,26 +42,6 @@ $main_news = array(
 );
 
 $context['main_news'] = Timber::get_posts( $main_news);
-
-
-//$posts = get_posts( array(
-//    'post_type' => 'post',
-//    'meta_query' => array(
-//        array(
-//            'key'   => 'main_new',
-//            'value' => '1',
-//        )
-//    )
-//) );
-//
-//
-//
-//if( $posts ) {
-//    foreach( $posts as $post ) {
-//        var_dump($post);
-//    }
-//}
-
 
 if (is_home()) {
     array_unshift($templates, 'front-page.twig', 'home.twig');

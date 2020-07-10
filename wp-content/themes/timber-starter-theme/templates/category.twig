@@ -1,9 +1,19 @@
+{% extends 'base.twig' %}
 
-<section class="main-section" data-anchor="top">
-<h1>{{ cat_title}}</h1>
-    {% for item in cat_news %}
-            <div class="popular__slide">
+{% block content %}
+
+<div class="category inner">
+    <div class="category__header">
+        {% set name = cat_title %} {% include "partials/_section-title.twig" %}
+        <select class="category__header__select">
+            <option value="popularity">по популярности</option>
+            <option value="nowelty">по новизне</option>
+        </select>
+    </div>
+    <div class="category__content">
+        {% for item in cat_news %}
                 {% include 'partials/_news-card.twig' %}
-            </div>
-    {% endfor %}
-</section>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
