@@ -25,16 +25,44 @@ $sticky_news = array(
     'post__in' => get_option('sticky_posts'),
     'order' => 'DESC'
 );
-$context['sticky_news'] = Timber::get_posts( $sticky_news  );
+$context['sticky_news'] = Timber::get_posts( $sticky_news );
 
 $last_news = array(
     'post_type' => 'post',
     'posts_per_page' => 8,
-   'post__not_in' => get_option( 'sticky_posts') ,
-   // 'order' => 'ASC'
+   'post__not_in' => get_option( 'sticky_posts'),
 );
 
-$context['last_news'] = Timber::get_posts( $last_news  );
+$context['last_news'] = Timber::get_posts( $last_news );
+
+
+$main_news = array(
+    'post__not_in' => get_option( 'sticky_posts'),
+            'meta_key' => 'main_new',
+            'meta_value' => '1',
+);
+
+$context['main_news'] = Timber::get_posts( $main_news);
+
+
+//$posts = get_posts( array(
+//    'post_type' => 'post',
+//    'meta_query' => array(
+//        array(
+//            'key'   => 'main_new',
+//            'value' => '1',
+//        )
+//    )
+//) );
+//
+//
+//
+//if( $posts ) {
+//    foreach( $posts as $post ) {
+//        var_dump($post);
+//    }
+//}
+
 
 if (is_home()) {
     array_unshift($templates, 'front-page.twig', 'home.twig');

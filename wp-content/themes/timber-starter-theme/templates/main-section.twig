@@ -1,33 +1,35 @@
 {% import 'partials/_category-button.twig' as btn %}
 <section class="main-section" data-anchor="top">
   <div class="main-section__inner inner">
-    <div class="main-section__inner__content"
-      style="background-image: linear-gradient(grey 6px, transparent 17%), url({{
-      sticky_news[0].thumbnail
-      }})">
-      <h1 class="main-section__inner__content__title">
-        Новость дня
-      </h1>
-      <div class="main-section__inner__content__card">
-        <div class="card-data">
-          {{
+    {% for item in main_news %}
+      <div class="main-section__inner__content"
+           style="background-image: linear-gradient(grey 6px, transparent 17%), url({{
+           item.thumbnail
+           }})">
+        <h1 class="main-section__inner__content__title">
+          Новость дня
+        </h1>
+        <div class="main-section__inner__content__card">
+          <div class="card-data">
+            {{
             btn.category_button({
-              name: sticky_news[0].category,
-              link:  get_cat_link(sticky_news[0].category)
+              name: item.category,
+              link:  get_cat_link(item.category)
             })
-          }}
-          <div class="card-data__date">
-            {{ sticky_news[0].date }}
+            }}
+            <div class="card-data__date">
+              {{ item.date }}
+            </div>
           </div>
+          <h3 class="card-title">
+            <a href="{{ item.link }}">{{ item.title }}</a>
+          </h3>
+          <p class="card-text">
+            {{ item.prev }}
+          </p>
         </div>
-        <h3 class="card-title">
-          <a href="{{ sticky_news[0].link }}">{{ sticky_news[0].title }}</a>
-        </h3>
-        <p class="card-text">
-          {{ sticky_news[0].prev }}
-        </p>
       </div>
-    </div>
+    {% endfor %}
     <div class="main-section__inner-sidebar">
       {% set name = 'Новости' %} {% include 'partials/_section-title.twig' %}
       <div class="inner-sidebar__filter">
